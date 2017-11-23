@@ -22,7 +22,7 @@ int heapSize = length - 1;
 
 int main() {
 
-	int A[length + 1] = { 0,4,3,10,7,1,2,8,14,16 };
+	int A[length] = { 0,4,3,10,7,1,2,8,14,16 };
 	HeapSort(A);
 	printArray(A, length);
 
