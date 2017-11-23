@@ -17,12 +17,12 @@ int Right(int i);
 void SwapElements(int i, int largest, int A[]);
 void printArray(int A[], int length);
 
-int length = 9;
-int heapSize = length;
+int length = 10;
+int heapSize = length - 1;
 
 int main() {
 
-	int A[10] = { 0,4,3,10,7,1,2,8,14,16 };
+	int A[length + 1] = { 0,4,3,10,7,1,2,8,14,16 };
 	HeapSort(A);
 	printArray(A, length);
 
@@ -51,22 +51,22 @@ void HeapIFY(int A[], int i) {
 }
 
 void BuildMaxHeap(int A[]) {
-	for(int i = length / 2; i > 0; i--) {
+	for(int i = (length / 2) - 1; i >= 0; i--) {
 		HeapIFY(A, i);
 	}
 }
 
 void HeapSort(int A[]) {
 	BuildMaxHeap(A);
-	for(int i = length; i >= 2; i--) {
-		SwapElements(i, 1, A);
+	for(int i = length - 1; i >= 1; i--) {
+		SwapElements(i, 0, A);
 		heapSize--;
-		HeapIFY(A, 1);
+		HeapIFY(A, 0);
 	}
 }
 
 int Left(int i) {
-	return (i * 2);
+	return (i * 2) + 1;
 }
 
 int Right(int i) {
@@ -80,7 +80,7 @@ void SwapElements(int i, int largest, int A[]) {
 }
 
 void printArray(int A[], int length) {
-	for(int i = 0; i <= length; i++) {
+	for(int i = 0; i < length; i++) {
 		cout<<A[i]<<" ";
 	}
 }
